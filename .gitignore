@@ -1,0 +1,14 @@
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+
+.DS_Store
+config/database.yml
+*~
+.*.sw*
+
+public/_pw31_public
+public/system
+public/artykuly
+db/pw31_csv/users.csv
