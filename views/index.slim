@@ -4,8 +4,8 @@ a href='/new' new
   ul
   - @shts.each do |cs|
     li
-      h3
-        a href="/show/#{cs.id}"= cs.title
-      div= cs.content
+      a href="/show/#{cs.id}" class='title'
+        strong= cs.title
+      = cs.content
 
 
