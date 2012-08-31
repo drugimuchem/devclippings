@@ -1,0 +1,13 @@
+development:
+  sessions:
+    default:
+      database: chtsht
+      hosts:
+        - localhost:27017
+production:
+  sessions:
+    default:
+      database: chtsht
+      hosts:
+        - ds035997.mongolab.com:35597
+

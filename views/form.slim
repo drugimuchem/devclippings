@@ -1,0 +1,11 @@
+form action="/save" method='POST
+  dl
+    dt title
+    dl
+      input name='sheet[title]' value==@sht.title
+    dt content
+    dl
+      textarea name='sheet[content]' =@sht.content
+  input type='submit'
+  - unless @sht.id.nil?
+    input type='hidden' name='id' value==@sht.id
