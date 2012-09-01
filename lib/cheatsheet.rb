@@ -1,14 +1,22 @@
-require 'mongoid'
+require 'dm-core'
+require 'dm-migrations'
 require './lib/html_sheet'
 
+DataMapper.setup(:default, 'mysql://root@localhost/chtshtdb')
+
 class Cheatsheet
-  include Mongoid::Document
+  include DataMapper::Resource
   include HtmlSheet
 
-  field :title
-  field :content
+  property :id, Serial
+  property :title, String
+  property :content, Text
 
   def content_as_html
     HtmlSheet.to_html(content)
   end
 end
+
+DataMapper.auto_upgrade!
+DataMapper.finalize
+
