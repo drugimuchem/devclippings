@@ -1,11 +1,18 @@
 require 'sinatra'
 require 'slim'
 require './models/cheatsheet'
+require './tests/html_sheet'
 require 'mongoid'
 require 'pp'
 
 configure do
   Mongoid.load!("mongoid.yml",:development)
+end
+
+helpers do
+  def htmlize(text)
+    HtmlSheet.to_html(text)
+  end
 end
 
 get '/' do

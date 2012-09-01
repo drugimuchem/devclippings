@@ -1,11 +1,11 @@
 a href='/new' new 
-
-- unless @shts.nil?
-  ul
-  - @shts.each do |cs|
-    li
-      a href="/show/#{cs.id}" class='title'
-        strong= cs.title
-      = cs.content
+div class='wrapper'
+  - unless @shts.nil?
+    ul
+    - @shts.each do |cs|
+      li
+        strong
+          a href="/show/#{cs.id}"= cs.title
+        = cs.content[0,100]
 
 

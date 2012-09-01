@@ -1,7 +1,9 @@
-h3= @sht.title
-div class='content'= @sht.content
-
-br
+h1 class='title'= @sht.title
 a href="/edit/#{@sht.id}" edit
 br
 a href="/delete/#{@sht.id}" delete
+
+div class='wrapper'
+  div class='content'
+    == htmlize @sht.content
+

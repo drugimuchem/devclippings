@@ -5,4 +5,5 @@ class Cheatsheet
 
   field :title
   field :content
+
 end
