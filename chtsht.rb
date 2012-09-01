@@ -6,6 +6,7 @@ require 'pp'
 
 configure do
   Mongoid.load!("mongoid.yml",:development)
+  #Mongoid.load!("mongoid.yml",:production)
 end
 
 get '/' do
