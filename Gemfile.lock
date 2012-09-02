@@ -2,10 +2,20 @@ GEM
   remote: http://rubygems.org/
   specs:
     addressable (2.2.8)
+    data_objects (0.10.8)
+      addressable (~> 2.1)
     dm-core (1.2.0)
       addressable (~> 2.2.6)
+    dm-do-adapter (1.2.0)
+      data_objects (~> 0.10.6)
+      dm-core (~> 1.2.0)
     dm-migrations (1.2.0)
       dm-core (~> 1.2.0)
+    dm-mysql-adapter (1.2.0)
+      dm-do-adapter (~> 1.2.0)
+      do_mysql (~> 0.10.6)
+    do_mysql (0.10.8)
+      data_objects (= 0.10.8)
     rack (1.4.1)
     rack-protection (1.2.0)
       rack
@@ -25,5 +35,6 @@ PLATFORMS
 DEPENDENCIES
   dm-core
   dm-migrations
+  dm-mysql-adapter
   sinatra
   slim
