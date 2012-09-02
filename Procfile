@@ -1,1 +1,1 @@
-web: bundle exec ruby chtsht.rb -p 8765
+web: bundle exec ruby chtsht.rb -p $PORT
