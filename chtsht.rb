@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'slim'
 require './lib/cheatsheet'
-require 'pp'
 
 get '/' do
   @shts = Cheatsheet.all
@@ -29,7 +28,6 @@ get '/delete/:id' do |id|
 end
 
 post '/save' do
-  puts pp params
   if params.has_key?('id')
     cs = Cheatsheet.get(params[:id])
     cs.update(params[:sheet])
