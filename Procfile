@@ -1,1 +1,1 @@
-web: bundle exec ruby chtsht.rb -p $PORT
+web: bundle exec ruby devclippings.rb -p $PORT
