@@ -5,5 +5,40 @@ a href="/delete/#{@sht.id}" delete
 
 div class='wrapper'
   div class='content'
+    span id='text-format-toggler' highlighted syntax
     == @sht.content_as_html
+
+script type='text/javascript' src='/google-code-prettify/prettify.js'
+javascript:
+  var 
+  divs       = document.body.getElementsByTagName('div'),
+  textDivs   = [];
+  rawContent = [];
+  hlgContent = [];
+
+  for (var i = divs.length-1; i >= 0; i--)
+    if (divs[i].className == 'text') 
+      textDivs.push(divs[i]);
+
+  for (var i = textDivs.length-1; i >= 0; i--) {
+    rawContent[i]         = textDivs[i].innerHTML;
+    textDivs[i].innerHTML = '<pre class="prettyprint">' + textDivs[i].innerHTML + '</pre>';
+  }
+  prettyPrint();
+  for (var i = textDivs.length-1; i >= 0; i--)
+    hlgContent[i] = textDivs[i].innerHTML;
+
+  var 
+  syntaxHighlighted = true;
+  toggler           = document.getElementById('text-format-toggler');
+
+  toggler.onclick = function() {
+    syntaxHighlighted = !syntaxHighlighted;
+    toggler.className = syntaxHighlighted ? '' : 'striked'; 
+    for (var i = textDivs.length-1; i >= 0; i--) {
+      textDivs[i].innerHTML = syntaxHighlighted ? hlgContent[i] : rawContent[i]
+    }
+  }
+
+
 

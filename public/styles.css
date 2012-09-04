@@ -47,9 +47,11 @@ li {
 
 
 .content {
+	position: relative;
   background : #F6F7BD;
   border: 4px solid #D93D04;
   margin: 0 10px;
+	z-index: 1;
   /*padding-top: 20px;*/
 }
 
@@ -71,3 +73,20 @@ li {
   }
 
 textarea { width: 100%; min-height: 200px; }
+
+#text-format-toggler {
+	position: absolute;
+	right: -4px;
+	top: -24px;
+	height: 20px;
+	padding: 0 5px;
+	font-size: 150%;
+	color: #D93D04;
+  background : #F6F7BD;
+  border: 4px solid #D93D04;
+	border-bottom: none;
+	z-index: 2;
+}
+	.striked { text-decoration: line-through }
+
+pre.prettyprint { border: none !important; }
