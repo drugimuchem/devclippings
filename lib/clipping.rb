@@ -7,7 +7,7 @@ DataMapper.setup(:default, 'mysql://magineo_chtshtu:321Jebud!!!@mysql-573360.vip
 
 class Clipping
   include DataMapper::Resource
-  include HtmlSheet
+  include Markeline
 
   property :id     , Serial
   property :title  , String
