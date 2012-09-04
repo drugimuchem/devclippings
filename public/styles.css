@@ -19,9 +19,14 @@ h1 {
   margin: 0 10px;
 }
   h1.chtsht a { text-decoration: none; }
+    h1.chtsht a ins { 
+      border: 1px dashed #D93D04;
+      text-decoration: none;
+    }
   h1.title { color: #D93D04; }
 
 .wrapper {
+  padding-top: 5px;
   clear: both;
 }
 
