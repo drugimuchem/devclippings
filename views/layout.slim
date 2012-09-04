@@ -2,8 +2,10 @@ html
   head
     title chtsht - cheatsheets
     link href='/styles.css' rel='stylesheet' type='text/css' 
+    link href='/google-code-prettify/prettify.css' rel='stylesheet' type='text/css' 
     link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'
   body
     h1 class='chtsht'
       a href='/' cheatsheets
     == yield
+    script type='text/javascript' src='/google-code-prettify/prettify.js'

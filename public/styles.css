@@ -51,7 +51,6 @@ li {
   border: 4px solid #D93D04;
   margin: 0 10px;
   /*padding-top: 20px;*/
-  /*white-space: pre-wrap; [> css-3 <]*/
 }
 
   .content h2 {
@@ -64,9 +63,11 @@ li {
     margin: 10px;
     border-bottom: 2px solid #027353;
   }
-  .content p { 
+  .content p,
+  .content .text { 
     margin: 5px 10px; 
     font-family: monospace;
+    white-space: pre-wrap; /* css-3 */
   }
 
 textarea { width: 100%; min-height: 200px; }
