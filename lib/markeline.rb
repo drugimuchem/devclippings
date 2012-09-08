@@ -14,7 +14,8 @@ module Markeline
     end
 
     strIn.each_line do |line|
-        #line.chomp!
+      #line.chomp!
+      line.gsub!('<','&lt;')
       if line =~ /^\s*{#+}.+/
 
         flushBuffer.call

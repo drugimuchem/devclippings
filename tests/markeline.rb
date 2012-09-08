@@ -103,6 +103,17 @@ class MarkelineTest < Test::Unit::TestCase
     assert_to_html_in_out(samples)
   end
 
+  def test_to_html_characters
+    samples = [
+      [ 
+        "long_string=<<EOS\nIt is a long\nmultiline string\nEOS", 
+        "<div class=\"text\">long_string=&lt;&lt;EOS\nIt is a long\nmultiline string\nEOS</div>" 
+      ],
+    ]
+    assert_to_html_in_out(samples)
+  end
+
+
   private
 
   def assert_to_html_in_out(samples)
