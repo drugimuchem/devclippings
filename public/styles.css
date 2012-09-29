@@ -68,7 +68,12 @@ li {
   }
   .content h3 {
     margin: 10px;
-    border-bottom: 2px solid #027353;
+    border-bottom: 3px solid #027353;
+  }
+  .content h4 {
+    margin: 10px;
+    padding-left: 5px;
+    border-left: 7px solid  #027353;
   }
   .content p,
   .content .text { 

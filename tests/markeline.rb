@@ -103,7 +103,7 @@ class MarkelineTest < Test::Unit::TestCase
     assert_to_html_in_out(samples)
   end
 
-  def test_to_html_characters
+  def test_encode_html_characters
     samples = [
       [ 
         "long_string=<<EOS\nIt is a long\nmultiline string\nEOS", 
@@ -113,6 +113,13 @@ class MarkelineTest < Test::Unit::TestCase
     assert_to_html_in_out(samples)
   end
 
+  def test_skipping_empty_lines
+    samples = [
+      [ "Deep\n   \n\t\t\ndive", "<div class=\"text\">Deep\n\ndive</div>" ],
+      [ "\n\nDeepdive\n   \n \t \n\n", "<div class=\"text\">Deepdive\n</div>" ],
+    ]
+    assert_to_html_in_out(samples)
+  end
 
   private
 

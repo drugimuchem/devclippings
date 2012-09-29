@@ -3,12 +3,12 @@ module Markeline
   def self.to_html(strIn)
     htmlOutput = []
     hStates    = {}
-    txtBuffer  = ''
+    txtBuffer  = []
     (2..4).each{|i| hStates[i] = 0}
 
     flushBuffer = lambda do
-      if txtBuffer =~ /\S/
-        htmlOutput.push('<div class="text">%s</div>' % txtBuffer.chomp) # remove last \n
+      if not txtBuffer.empty?
+        htmlOutput.push('<div class="text">%s</div>' % txtBuffer.join.chomp) # remove last \n
       end
       txtBuffer.clear
     end
@@ -32,8 +32,12 @@ module Markeline
 
         line = '<h%d id="%s-%s">%s</h%d>' % [ hLevel, hNumber, to_slug(hText), hText, hLevel ]
         htmlOutput.push(line)
-      elsif line =~ /\S/
-        txtBuffer << line
+      elsif line =~ /\S/ 
+        txtBuffer.push(line)
+      elsif not txtBuffer.empty? and txtBuffer[-1] != "\n" 
+        # This condition handles empty lines.
+        # There can't more more then one empty line in a row.
+        txtBuffer.push("\n")
       end
     end
 
