@@ -30,9 +30,10 @@ end
 post '/save' do
   if params.has_key?('id')
     cs = Clipping.get(params[:id])
-    cs.update(params[:sheet])
   else
-    cs = Clipping.create(params[:sheet])
+    cs = Clipping.new
   end
+  cs.attributes = params[:sheet]
+  cs.save
   redirect to("/show/#{cs.id}")
 end
