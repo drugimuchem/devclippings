@@ -12,7 +12,7 @@ class DevclippingsTest < Test::Unit::TestCase
 
   def setup
     Capybara.app = Sinatra::Application.new
-    DataMapper.setup(:default,'mysql://root@localhost/devclippings_test')
+    DataMapper.setup(:default,'mysql://devclippings@localhost/devclippings_test')
     Clipping.auto_migrate!
   end
 
