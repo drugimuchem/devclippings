@@ -6,39 +6,38 @@ a href="/delete/#{@sht.id}" delete
 div class='wrapper'
   div class='content'
     span id='text-format-toggler' highlighted syntax
-    == @sht.content_markelined
+    div== @sht.content_markelined
+
 
 script type='text/javascript' src='/google-code-prettify/prettify.js'
+script type='text/javascript' src='/mootools-core-1.4.5.js'
 javascript:
   var 
-  divs       = document.body.getElementsByTagName('div'),
-  textDivs   = [];
-  rawContent = [];
-  hlgContent = [];
+  clippingEl  = $$('div.content div')[0],
+  clippingRaw = clippingEl.innerHTML;
 
-  for (var i = divs.length-1; i >= 0; i--)
-    if (divs[i].className == 'text') 
-      textDivs.push(divs[i]);
-
-  for (var i = textDivs.length-1; i >= 0; i--) {
-    rawContent[i]         = textDivs[i].innerHTML;
-    textDivs[i].innerHTML = '<pre class="prettyprint">' + textDivs[i].innerHTML + '</pre>';
-  }
+  clippingEl.getElements('div.text').each(function(div) {
+    div.set('html','<pre class="prettyprint">' + div.innerHTML + '</pre>')
+  })
   prettyPrint();
-  for (var i = textDivs.length-1; i >= 0; i--)
-    hlgContent[i] = textDivs[i].innerHTML;
+  var clippingPretty = clippingEl.innerHTML;
 
-  var 
-  syntaxHighlighted = true;
-  toggler           = document.getElementById('text-format-toggler');
+  $('text-format-toggler').addEvent('click',function(){
+    clippingEl.set('html',this.toggleClass('striked').hasClass('striked') ? clippingRaw : clippingPretty);
+  });
 
-  toggler.onclick = function() {
-    syntaxHighlighted = !syntaxHighlighted;
-    toggler.className = syntaxHighlighted ? '' : 'striked'; 
-    for (var i = textDivs.length-1; i >= 0; i--) {
-      textDivs[i].innerHTML = syntaxHighlighted ? hlgContent[i] : rawContent[i]
-    }
-  }
+  var tableOfContents = new Element('ul.table-of-contents');
+  clippingEl.getElements('h2, h3, h4').each(function(h){
+    ( new Element('li') )
+    .adopt( new Element('a',{
+        'class' : h.get('tag') + '-anchor',
+        text    : h.get('text'),
+        href    : '#' + h.id,
+    }))
+    .inject(tableOfContents);
+  })
 
+  $$('div.wrapper')[0].adopt(tableOfContents,'top') 
 
+  console.log(tableOfContents)
 

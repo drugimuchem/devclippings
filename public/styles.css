@@ -101,3 +101,28 @@ textarea { width: 100%; min-height: 200px; }
 	.striked { text-decoration: line-through }
 
 pre.prettyprint { border: none !important; }
+
+.table-of-contents {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 99;
+  background: #F2EC91;
+  border: 3px solid #027353;
+}
+
+  .table-of-contents { padding: 5px; margin: 0; }
+  .table-of-contents li { 
+    margin: 2px 0; 
+    padding: 0 0 0 0; 
+    font-size: 12px;
+  }
+
+  .table-of-contents a {
+    text-decoration: none;
+  }
+
+  .h2-anchor { margin-left: 5px; font-weight: bold; }
+  .h3-anchor { margin-left: 15px; }
+  .h4-anchor { margin-left: 25px; }
+
