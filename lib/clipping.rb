@@ -2,7 +2,7 @@ require 'dm-core'
 require 'dm-migrations'
 require './lib/markeline'
 
-# use env variable DM_SETUP for custom DB for DataMapper 
+# use env variable DB_URL to change database
 DataMapper.setup( :default, ENV['DB_URL'] || 'mysql://root@localhost/chtshtdb' )
 
 class Clipping
